@@ -5,8 +5,8 @@ import { updateSearchResults, openModal } from '../context/actions';
 import { API_KEY } from '../api';
 
 export default function Search() {
-	const [searchTerm, setSearchTerm] = useState('r');
-	const [pageNumber, setPageNumber] = useState(1);
+	const [searchTerm, setSearchTerm] = useState('');
+	const [pageNumber, setPageNumber] = useState(0);
 	const [year, setYear] = useState();
 
 	const TypeRef = useRef(null);
@@ -30,6 +30,8 @@ export default function Search() {
 			let url = 'https://www.omdbapi.com/?apikey=' + import.meta.env.VITE_OMDB_API_KEY + '&page=1&';
 
 			url = url + 't=' + searchQuery;
+
+			if (year) url = url + '&y=' + year;
 
 			const response = await fetch(`${url}`);
 			const data = await response.json();
@@ -65,7 +67,7 @@ export default function Search() {
 						type="search"
 						name="searchQuery"
 						id="searchQuery"
-						placeholder="Search for movies, tv shows, actors..."
+						placeholder="Search for movies..."
 						x-model="q"
 						className="w-fit pl-4 text-sm outline-none focus:outline-none bg-transparent"
 						onChange={e => setSearchTerm(e.target.value)}
