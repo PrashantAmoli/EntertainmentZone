@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.flexbox {
+		@apply flex flex-wrap justify-center items-center p-2 sm:p-6;
+	}
+	.gridbox {
+		@apply flex flex-wrap justify-center items-center p-2 sm:p-6;
+	}
+	.content-box {
+		@apply flex flex-wrap h-16 items-center p-2 sm:p-6;
+	}
+
+	/* Movies Card Classes */
+	.movie-card {
+		@apply w-80 h-[62vh] shadow-md hover:shadow-black/50 hover:shadow-lg rounded-lg overflow-hidden flex flex-col justify-center items-center;
+	}
+	.movie-poster {
+		@apply flex w-full overflow-hidden p-0;
+	}
+
+	/* TEXT Classes */
+	.text-head {
+		@apply text-gray-900 font-semibold text-lg;
+	}
+	.text-subhead {
+		@apply text-gray-800 font-semibold text-base;
+	}
+	.text-body {
+		@apply text-gray-700;
+	}
+	.text-small {
+		@apply text-gray-600 text-sm;
+	}
+
+	/* Form Elements Classes */
+	.input-primary {
+		@apply py-2 px-4 bg-white text-gray-700 font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+	}
+	.btn-primary {
+		@apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+	}
+}
